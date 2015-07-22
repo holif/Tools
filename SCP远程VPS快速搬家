@@ -1,0 +1,36 @@
+SCP远程VPS快速搬家详细操作方法
+1、SCP的命令格式如下：
+scp [参数] [原路径] [目标路径]
+
+2、复制本地VPS主机的文件到新的VPS主机上：
+scp -P 2233 /home/freehao123.tar.gz root@123.123.123.123:/root/freehao123.tar.gz
+
+3、-P 2233表示端口，如果你的原VPS主机没有修改过端口，使用的默认的22的话，可不用写-P 2233这样的。
+
+4、复制本地VPS主机的文件夹目录到新的VPS主机上：
+scp -r /www/wdlinux/mysql-5.1.63/var/ root@211.155.86.188:/www/wdlinux/mysql-5.1.63/
+
+5、以上命令就是将Var文件夹目录全部复制到新的VPSmysql-5.1.63目录下。
+
+6、当然，如果你想将远程的VPS上的文件复制到本地VPS上，可以将上面的命令倒置一下：
+scp -P 2233 root@123.123.123.123:/root/freehao123.tar.gz /home/freehao123.tar.gz 
+
+7、上面命令表示将123.123.123.123:/root/freehao123.tar.gz 复制到本地VPS的/home/freehao123.tar.gz 。
+
+8、同理，将远程VPS主机上的文件夹目录复制到本地，就是用命令：
+scp -r root@211.155.86.188:/www/wdlinux/mysql-5.1.63/var/ /www/wdlinux/mysql-5.1.63/
+
+9、掌握了以上的命令后，我们在新旧VPS之间进行搬家就非常地容易了，以WDCP为例，首先将所有的服务停止了：
+service nginxd stop
+service httpd stop
+service wdapache stop
+service mysqld stop
+service pureftpd stop
+
+10、找到WDCP的SQL、WEB、wdcp等数据存储目录，直接复制过去即可。如：
+
+scp -r /www/wdlinux/mysql-5.1.63/var/ root@211.155.86.188:/www/wdlinux/mysql-5.1.63/var/
+scp -r /www/web/ root@211.155.86.188:/www/web/
+scp -r /www/wdlinux/wdcp root@211.155.86.188:/www/wdlinux/wdcp
+
+11、开始连接远程VPS时，会提示是否继续连接，输入Yes后，然后填写远程VPS的密码，即可。
