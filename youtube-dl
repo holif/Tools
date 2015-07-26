@@ -1,0 +1,7 @@
+安装：
+  [1]. wget http://youtube-dl.org/latest/youtube-dl -O /usr/local/bin/youtube-dl
+  [2]. chmod a+x /usr/local/bin/youtube-dl
+使用：
+youtube-dl 视频地址 //默认480p
+youtube-dl -F 视频地址 //获取视频列表
+youtube-dl -f 序号 视频地址 //下载制定序号的视频
