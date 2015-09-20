@@ -1,5 +1,5 @@
 
-**目前yum源上没有Axel，我们可以到http://pkgs.repoforge.org/axel/下载rpm包安装**
+#目前yum源上没有Axel，我们可以到http://pkgs.repoforge.org/axel/下载rpm包安装
 
 32位CentOS执行下面命令：
 |------------------------------------------------------------------------|
